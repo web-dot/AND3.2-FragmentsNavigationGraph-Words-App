@@ -15,6 +15,6 @@ of the RecyclerView can be changed between a vertical list or a grid of items.
 The app demonstrates the use of Fragments.
 
 
-![App Screenshot](screenshots/letters.png)
-![App Screenshot](screenshots/words.png)
-![App Screenshot](screenshots/web.png)
+![App Screenshot](screenshots/low-res/letters.png)
+![App Screenshot](screenshots/low-res/words.png)
+![App Screenshot](screenshots/low-res/web.png)
