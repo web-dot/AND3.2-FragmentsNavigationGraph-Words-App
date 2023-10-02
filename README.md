@@ -12,6 +12,8 @@ Each word can be looked up via a web search.
 Words app contains a scrollable list of 26 letters A to Z in a RecyclerView. The orientation
 of the RecyclerView can be changed between a vertical list or a grid of items.
 
+The Fragments are embedded in a FragmentContainerView in a single activity.
+
 The app demonstrates the use of Fragments.
 
 
