@@ -23,6 +23,7 @@ import android.view.ViewGroup
 import android.view.accessibility.AccessibilityNodeInfo
 import android.widget.Button
 import androidx.annotation.RequiresApi
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 
 /**
@@ -64,10 +65,12 @@ class LetterAdapter :
         val item = list.get(position)
         holder.button.text = item.toString()
         holder.button.setOnClickListener {// set the onclicListener for holder.button
-            val context = holder.itemView.context // get a reference to the context
-            val intent = Intent(context, WordListFragment::class.java) // create intent passing context and class
-            intent.putExtra(WordListFragment.LETTER, holder.button.text.toString()) // call putExtra() method
-            context.startActivity(intent)
+//            val context = holder.itemView.context // get a reference to the context
+//            val intent = Intent(context, WordListFragment::class.java) // create intent passing context and class
+//            intent.putExtra(WordListFragment.LETTER, holder.button.text.toString()) // call putExtra() method
+//            context.startActivity(intent)
+            val action = LetterListFragmentDirections.actionLetterListFragmentToWordListFragment(letter = holder.button.text.toString())
+            holder.view.findNavController().navigate(action)
         }
     }
 
