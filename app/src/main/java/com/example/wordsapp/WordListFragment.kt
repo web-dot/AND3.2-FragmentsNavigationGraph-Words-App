@@ -22,31 +22,35 @@ class WordListFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var recyclerView: RecyclerView
 
+    private lateinit var letterId: String
+
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        arguments?.let {
+            letterId = it.getString(LETTER).toString()
+        }
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentWordListBinding.inflate(inflater, container, false)
-        val view = binding.root;
+        val view = binding.root
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        recyclerView = binding.recyclerView
-        chooseLayout()
-    }
-
-    private fun chooseLayout() {
         val recyclerView = binding.recyclerView
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        val letterId = activity?.intent?.extras?.getString(LETTER).toString()
         recyclerView.adapter = WordAdapter(letterId, requireContext())
-
         recyclerView.addItemDecoration(
             DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
         )
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()
